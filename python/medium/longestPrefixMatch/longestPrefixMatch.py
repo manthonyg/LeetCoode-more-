@@ -1,4 +1,6 @@
 def longest(areaCodes, numbers):
+
+  # Naive solution
   # answer = []
   # areaCodes.sort(key=len,reverse = True)
   # for number in numbers:
@@ -9,6 +11,8 @@ def longest(areaCodes, numbers):
   # print(areaCodes)
   # print(answer)
   # return answer
+
+  # Trie solution
     class Trie():
         def __init__(self,value=None):
             self.children = {}
@@ -20,6 +24,8 @@ def longest(areaCodes, numbers):
 
         def getChild(self,x):
             return self.children.get(x,None)
+
+    # Input all areaCodes into a Trie
     root = Trie()
     for code in areaCodes:
         node = root
@@ -28,7 +34,26 @@ def longest(areaCodes, numbers):
             node = node.getChild(c)
         node.isEnd = True
     
+    answer = []
     
+    # Start looking for all matching prefixes
+    for number in numbers:
+        node = root
+        prefix = ''
+        path = ''
+        for n in number:
+            if node.getChild(n):
+                path += n
+                node = node.getChild(n)
+                if node.isEnd:
+                    prefix = path
+            else:
+                if prefix:
+                    answer.append(prefix)
+                break
+    print(answer)
+
+    # following code prints the entire Trie
     # node = root
     # toPrint = list(node.children.values())
     # print(toPrint)
