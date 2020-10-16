@@ -1,0 +1,37 @@
+1. What is the difference between a class variable and an instance variable? What does `self.ATTRIBUTE` give you the ability to do that `ATTRIBUTE` does not?
+
+    Class Variable: defined within the top level of a class and is accessible by all the instances of the class through class_name.class_variable or self.class_variable.
+
+    Instance Variable: declared within the instance method or __init__ and is only accessible by that particular instance
+
+    self.ATTRIBUTE lets you access the attribute pertained to a particular instance while attribute is just a variable that may get lost when goes out of scope and is hard to retrieve.
+
+
+
+
+2. List and describe all the `git` commands you commonly use to create a pull request
+
+    Your answer:
+    1. Fork from a repo to my local github
+    2. cd to the preferred directory and git clone the forked the repo to my local machine
+    3. Make some changes on the master branch of the repo locally
+    4. git add . to stage all of the changes under the current directory
+    5. git commit -m 'message' to commit the change with a customed message
+    6. git push origin master to push the updated local repo to the my own forked origin, which is the repo on my Github
+    7. click the pull request button on my Github so that owner of the original repo can see my request
+
+
+
+
+3. Can you describe what recursion is? What does every recursive method need?
+
+    Recursion is repeatedly calling a function itself within the function. 
+    Recursion needs:
+    1. A base case, so that the call stacks will return at some point and will not overflow. 
+    2. An initial state, so that the function has a start point 
+    3. A step, so that the start point can be updated when each recursion is called and gets closer and closer to reach the base case.
+
+
+4. What are Python libraries and why are they used?
+
+    Python libraries are useful pre-defined classes, variables and methods programmer already wrote for us so we can easily import them and start using their functionality instead of writing our own code to achieve the same goal.
