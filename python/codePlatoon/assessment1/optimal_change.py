@@ -30,11 +30,21 @@ class ChangeMaker:
 
     def optimal_change(self):
         string_to_print = f'The optimal change for an item that costs ${self.price} with an amount paid of ${self.paid} is '
-        for index,number in self.change_dict.items():
-            if number > 1:
-                string_to_print += f'{number} {self.plurals[index]}, '
+        while bool(self.change_dict):
+            index, number = self.change_dict.popitem(last=False)
+            # check if reached last pair in dict
+            if bool(self.change_dict):
+                if number > 1:
+                    string_to_print += f'{number} {self.plurals[index]}, '
+                else:
+                    string_to_print += f'{number} {self.singles[index]}, '
+            # reached last pair in dict
             else:
-                string_to_print += f'{number} {self.singles[index]}, '
+                if number > 1:
+                    string_to_print += f'and {number} {self.plurals[index]}.'
+                else:
+                    string_to_print += f' and {number} {self.singles[index]}.'
+
         print(string_to_print)
             
 
