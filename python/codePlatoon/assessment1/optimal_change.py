@@ -1,11 +1,8 @@
 from collections import OrderedDict
 
 
-def optimal_change(num):
-    singles = ["$20 bill", "$10 bill", "$5 bill", "$1 bill", "quarter", "dime","penny"]
-    plurals = ["$20 bills", "$10 bills", "$5 bills", "$1 bills", "quarter", "dime","penny"]
-    
-    values = [20, 10, 5, 1, 0.25, 0.1, 0.01]
+
+
 
 class ChangeMaker:
     def __init__(self,price,paid):
@@ -14,41 +11,36 @@ class ChangeMaker:
         self.analyze(price,paid)
 
     def analyze(self,price,paid):
-        self.composition = OrderedDict
-
-    def optimal_change(self):
-
-
-
-
-class RomanNumerals:
-
-    def __init__(self, num):
-        self.value = num
-        self.analyze(num)
-        print(self.composition)
-
-    def analyze(self, num):
-        self.composition = OrderedDict()
-        numerals = ["M", "CM", "D", "CD", "C", "XC",
-                    "L", "XL", "X", "IX", "V", "IV", "I"]
-        values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+        self.singles = ["$20 bill", "$10 bill", "$5 bill", "$1 bill", "quarter", "dime", "penny"]
+        self.plurals = ["$20 bills", "$10 bills", "$5 bills", "$1 bills", "quarters", "dimes", "pennies"]
+        values = [20, 10, 5, 1, float(0.25), float(0.1), float(0.01)]
+        self.change_dict = OrderedDict()
+        change = paid - price
         i = 0
-        while num > 0:
-            if num >= values[i]:
-                num = num - values[i]
-                if self.composition.get(numerals[i]) is not None:
-                    self.composition[numerals[i]] += 1
+        while change > 0:
+            if change >= values[i]:
+                # round() handle Floating Point Arithmetic
+                change = round(change - values[i], 2)
+                if self.change_dict.get(i) is not None:
+                    self.change_dict[i] += 1
                 else:
-                    self.composition[numerals[i]] = 1
+                    self.change_dict[i] = 1
             else:
                 i += 1
 
-    def find_answer(self):
-        print('there are ')
-        for k, v in self.composition.items():
-            print(f'{v} {k}')
+    def optimal_change(self):
+        string_to_print = f'The optimal change for an item that costs ${self.price} with an amount paid of ${self.paid} is '
+        for index,number in self.change_dict.items():
+            if number > 1:
+                string_to_print += f'{number} {self.plurals[index]}, '
+            else:
+                string_to_print += f'{number} {self.singles[index]}, '
+        print(string_to_print)
+            
 
 
-number = RomanNumerals(3724)
-number.find_answer()
+
+change_maker1 = ChangeMaker(62.13, 100)
+change_maker1.optimal_change()
+change_maker2 = ChangeMaker(31.51, 50)
+change_maker2.optimal_change()
