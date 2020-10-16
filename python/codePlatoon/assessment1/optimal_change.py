@@ -1,9 +1,4 @@
 from collections import OrderedDict
-
-
-
-
-
 class ChangeMaker:
     def __init__(self,price,paid):
         self.price = price
@@ -13,7 +8,7 @@ class ChangeMaker:
     def analyze(self,price,paid):
         self.singles = ["$20 bill", "$10 bill", "$5 bill", "$1 bill", "quarter", "dime", "penny"]
         self.plurals = ["$20 bills", "$10 bills", "$5 bills", "$1 bills", "quarters", "dimes", "pennies"]
-        values = [20, 10, 5, 1, float(0.25), float(0.1), float(0.01)]
+        values = [20, 10, 5, 1, 0.25, 0.1, 0.01]
         self.change_dict = OrderedDict()
         change = paid - price
         i = 0
