@@ -40,9 +40,4 @@ class ChangeMaker:
                 else:
                     string_to_print += f' and {number} {self.singles[index]}.'
 
-        return(string_to_print)
-            
-change_maker1 = ChangeMaker(62.13, 100)
-change_maker1.optimal_change()
-change_maker2 = ChangeMaker(31.51, 50)
-change_maker2.optimal_change()
+        return string_to_print
