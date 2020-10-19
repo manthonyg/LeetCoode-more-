@@ -29,7 +29,7 @@ class AppleTree:
 
     def pick_an_apple(self):
         if self.any_apples():
-            return random.choice(self.apples)
+            return self.apples.pop(random.randrange(len(self.apples)))
         else:
             raise Exception('No apples on your tree')
         
