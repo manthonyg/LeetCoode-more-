@@ -8,6 +8,8 @@ class AppleTree:
         self.age += 1
         if self.age >= 100:
             self.dead = True
+        if self.age <= 20:
+            self.height += 5
     def is_dead(self):
         return self.dead
     
