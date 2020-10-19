@@ -3,18 +3,23 @@ class AppleTree:
         self.age = age
         self.height = height
         self.dead = False
+        self.has_apples = False
 
     def age_tree(self):
         self.age += 1
-        if self.age >= 100:
-            self.dead = True
-        if self.age <= 20:
+
+        if self.age < 20:
             self.height += 5
+        else:
+            self.has_apples = True
+            if self.age > 100:
+                self.dead = True
+                
     def is_dead(self):
         return self.dead
     
     def any_apples(self):
-        pass
+        return self.has_apples
 
     def pick_an_apple(self):
         raise Exception('No apples on your tree')
