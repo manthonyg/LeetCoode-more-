@@ -15,8 +15,14 @@ class AppleTree:
         if self.age < 20:
             self.height += 5
         else:
-            self.apples.extend((Apple(),Apple())) # grow two apples each year
-            self.has_apples = True if self.apples else False # has apples starting at age 20 and apples list is not empty
+            # has apples starting at age 20 and apples list is not empty
+            # count = random.randint(2, 5)
+            # for i in range(count):
+            #     print('diameter',Apple().diameter)
+            #     self.apples.extend([Apple()])
+            self.apples.extend((Apple(),Apple()))
+            print('apples',self.apples)
+            self.has_apples = True if self.apples else False
             if self.age > 100: # die at age 100
                 self.dead = True
 
