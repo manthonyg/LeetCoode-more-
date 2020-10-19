@@ -17,10 +17,10 @@ while tree.is_dead() == False:
         apple_basket.append(tree.pick_an_apple())
 
     # change this so it is the calculated avg diameter of all apples in the basket.
-    print('apple_basket',apple_basket)
-    sum_diameters = functools.reduce(
-        lambda x, y: x.diameter + y.diameter, apple_basket)
-    avg_diameter = sum_diameters / len(apple_basket)
+
+    sum_diameters = map(lambda x: x.diameter, apple_basket)
+    sum_diameters = sum(sum_diameters)
+    avg_diameter = round(sum_diameters / len(apple_basket),2)
 
     print(f"Year {tree.age} Report")
     print(f"Tree height: {tree.height} feet")
