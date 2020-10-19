@@ -1,14 +1,15 @@
 # Does a string contain a phone number?
 import re
-
+regex = r'\d{3}-\d{3}-\d{4}'
 def has_phone_number(input_string):
-    pass
+    return re.search(regex,input_string) != None
 
 # Get a phone number back from a string
 
 
 def get_phone_number(input_string):
-    pass
+    
+    return re.findall(regex,input_string)[0]
 
 
 # Gets and returns all phone numbers from an inputed string
