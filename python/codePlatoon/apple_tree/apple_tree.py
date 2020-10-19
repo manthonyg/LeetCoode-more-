@@ -1,3 +1,6 @@
+from apple import Apple
+import random
+
 class AppleTree:
     def __init__(self,age = 0,height = 0):
         self.age = age
