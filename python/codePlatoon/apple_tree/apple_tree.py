@@ -11,10 +11,10 @@ class AppleTree:
         if self.age < 20:
             self.height += 5
         else:
-            self.has_apples = True
-            if self.age > 100:
+            self.has_apples = True # has apples starting at age 20
+            if self.age > 100: # die at age 100
                 self.dead = True
-                
+
     def is_dead(self):
         return self.dead
     
