@@ -28,8 +28,8 @@ class AppleTree:
         return True if self.has_apples else False
 
     def pick_an_apple(self):
-        if self.has_apples:
-            return 
+        if self.any_apples():
+            return random.choice(self.apples)
         else:
             raise Exception('No apples on your tree')
         
