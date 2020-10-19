@@ -7,6 +7,7 @@ class AppleTree:
         self.height = height
         self.dead = False
         self.has_apples = False
+        self.apples = []
 
     def age_tree(self):
         self.age += 1
@@ -15,6 +16,7 @@ class AppleTree:
             self.height += 5
         else:
             self.has_apples = True # has apples starting at age 20
+            self.apples.extend((Apple(),Apple())) # grow two apples each year
             if self.age > 100: # die at age 100
                 self.dead = True
 
@@ -25,5 +27,8 @@ class AppleTree:
         return self.has_apples
 
     def pick_an_apple(self):
-        raise Exception('No apples on your tree')
-        # Read the tests before coding.
+        if self.has_apples:
+            return 
+        else:
+            raise Exception('No apples on your tree')
+        
