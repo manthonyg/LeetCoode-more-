@@ -25,7 +25,7 @@ class AppleTree:
         return self.dead
     
     def any_apples(self):
-        return True if self.has_apples else False
+        return True if self.apples else False
 
     def pick_an_apple(self):
         if self.any_apples():
