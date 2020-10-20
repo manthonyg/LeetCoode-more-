@@ -7,11 +7,11 @@ class Frame:
 
     def __init__(self):
         self.scores = [0,0]
-        self.bonus = 0
         self.spare = False
         self.strike = False
         self.num_throws = 2
         self.total_score = 0
+        self.bonus_score = 0
         
 
     def spare_or_strike(self):
@@ -39,6 +39,7 @@ class Frame:
             self.calculate_total_score()
             print('2nd throw score is:',self.scores[1])
             print('total score is: ',self.total_score)
+        self.spare_or_strike()
         
 
 
