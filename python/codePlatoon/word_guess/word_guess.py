@@ -1,6 +1,6 @@
 import random
 import string
-
+import csv
 
 class WordGuess:
     tries = {
@@ -12,12 +12,24 @@ class WordGuess:
     def __init__(self, debug=False):
          # are we in debug mode?
         self.debug = debug
-        
+        easy = []
+        medium = []
+        hard = []
+        with open('words.csv', mode='r') as rfile:
+            words = csv.reader(rfile)
+            for row in words:
+                if row[0] == 'e':
+                    easy = row[1:]
+                if row[0] == 'm':
+                    medium = row[1:]
+                if row[0] == 'h':
+                    hard = row[1:]
+                    
         # possible words, selected at random
         self.words = {
-            'e': ['dog', 'cat', 'bug', 'hat', 'cap', 'lit', 'kin', 'fan', 'fin', 'fun', 'tan', 'ten', 'tin', 'ton'],
-            'm': ['plain', 'claim', 'brine', 'crime', 'alive', 'bride', 'skine', 'drive', 'slime', 'stein', 'jumpy'],
-            'h': ['machiavellian', 'prestidigitation', 'plenipotentiary', 'quattuordecillion', 'magnanimous', 'unencumbered', 'bioluminescent', 'circumlocution']
+           'e': easy,
+           'm': medium,
+           'h': hard
         }
 
         # ask the user to set the game mode
