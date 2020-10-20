@@ -11,13 +11,18 @@ class Frame:
         self.spare = False
         self.strike = False
         self.num_throws = 2
+        self.total_score = 0
         
+
     def spare_or_strike(self):
         if self.scores[0] == 10:
             self.strike = True
         elif sum(self.scores) == 10:
             self.spare = True
         return self.scores
+
+    def calculate_total_score(self):
+        self.total_score = sum(self.scores)
     
     def throw(self):
         self.num_throws -= 1
@@ -26,13 +31,20 @@ class Frame:
 
         if self.num_throws == 1: # first throw
             self.scores[0] = first_score
+            self.calculate_total_score()
+            print('1st throw score is:',self.scores[0])
+            print('total score is: ',self.total_score)
         else: # second throw
             self.scores[1] = random.randint(0, second_throw_max_score)
+            self.calculate_total_score()
+            print('2nd throw score is:',self.scores[1])
+            print('total score is: ',self.total_score)
+        
 
 
-frame = Frame()
-frame.throw()
-frame.throw()
-print(frame.scores)
+# frame = Frame()
+# frame.throw()
+# frame.throw()
+# print(frame.total_score)
         
         
