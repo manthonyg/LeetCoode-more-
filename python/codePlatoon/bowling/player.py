@@ -28,9 +28,12 @@ michael = Player('Michael')
 
 
 for i in range(10):
+    print('*************************')
     print(f'this is {i}th frame')
     yang.frame_list[i].throw()
     # print(f'{i}th frame,throw 1, player current score',yang.current_score())
     yang.frame_list[i].throw()
     # print(f'{i}th frame throw 2, player current score',yang.current_score())
+
+print('**********************')    # <-- I like this lolll!
 print(yang.current_score())
